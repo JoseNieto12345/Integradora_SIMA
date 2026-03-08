@@ -1,0 +1,116 @@
+/* Esto elimina espacios en blanco por defecto del navegador */
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.full-screen-container {
+  background-color: #000c30; /* El azul oscuro de tu imagen */
+  min-height: 100vh;         /* 100% de la altura de la ventana */
+  width: 100vw;               /* 100% del ancho */
+  display: flex;             /* Usamos flexbox para centrar */
+  justify-content: center;   /* Centrado horizontal */
+  align-items: center;       /* Centrado vertical */
+  padding: 20px;
+}
+
+.login-card {
+  text-align: center;
+  width: 100%;
+  max-width: 450px; /* Evita que el formulario se estire demasiado en PC */
+}
+
+/* --- Estilos de los elementos --- */
+
+.circle-logo {
+  width: 120px;
+  height: 120px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-logo img {
+  width: 65%;
+}
+
+.sima-title {
+  color: white;
+  font-size: 80px;
+  font-weight: 900;
+  
+  display: inline-block;
+  line-height: 0.8;
+}
+
+.sima-subtitle {
+  color: #ccc;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.input-group label {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.input-group input{
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: #e0e0e0;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.forgot-link {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+.btn-iniciar {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  font-size: 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.register-link {
+  color: white;
+  display: block;
+  margin-top: 25px;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.btn-recuperar {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  font-size: 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
