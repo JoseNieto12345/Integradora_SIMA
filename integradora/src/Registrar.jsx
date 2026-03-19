@@ -35,23 +35,26 @@ function Registrar() {
     }
 
     try {
-      // URL de tu controlador en IntelliJ
-      const url = "http://localhost:8080/api/usuarios";
+      // URL de tu controlador en IntelliJ (asegúrate de que termine en /registro)
+      const url = "http://localhost:8080/api/usuarios/registro";
       
       const res = await axios.post(url, {
-        name_user: formData.name_user,
+        name_user: formData.name_user, // Para @JsonProperty("name_user")
+        nombre: formData.name_user,    // Para la variable private String nombre
         email: formData.email,
         password: formData.password,
         tipo: formData.tipo
       });
-
+      
       if (res.status === 200 || res.status === 201) {
         alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
-        navigate("/"); // Redirigir al login
+        navigate("/"); 
       }
     } catch (error) {
       console.error("Error al registrar:", error);
-      alert("Error en el servidor. Revisa si Spring Boot está corriendo.");
+      // Es mejor mostrar el error que viene del servidor si existe
+      const mensajeError = error.response?.data || "Error en el servidor. Revisa si Spring Boot está corriendo.";
+      alert(mensajeError);
     }
   };
 

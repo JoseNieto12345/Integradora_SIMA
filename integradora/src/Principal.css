@@ -1,0 +1,296 @@
+/* --- LAYOUT BASE --- */
+.sima-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #041224; /* Azul muy oscuro del sidebar de la imagen */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR IZQUIERDO --- */
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    padding: 30px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.logo-section { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
+.logo-icon { font-size: 32px; background: #89b4f8; padding: 5px; border-radius: 8px; }
+.logo-text h1 { font-size: 28px; font-weight: 800; letter-spacing: 2px; margin: 0; }
+.logo-text p { font-size: 10px; color: #a0b2c6; margin: 0; margin-top: 2px; line-height: 1.2; }
+
+.nav-menu { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+
+.nav-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+    border: none;
+    color: #8fa5be; /* Letras de botones inactivos */
+    padding: 14px 20px;
+    border-radius: 20px; /* Botones muy redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.nav-button:hover { background-color: rgba(255,255,255,0.05); }
+
+/* El botón azul brillante seleccionado */
+.nav-button.active {
+    background-color: #0d6efd; 
+    color: white;
+}
+
+/* Sección Usuario Abajo */
+.user-section { 
+    border-top: 1px solid rgba(255,255,255,0.1); 
+    padding-top: 20px; 
+}
+.user-info { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+.user-avatar { 
+    width: 40px; height: 40px; 
+    background: #0d6efd; 
+    border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    font-weight: bold; font-size: 14px;
+}
+.user-name { margin: 0; font-weight: bold; font-size: 16px; }
+.user-email { margin: 0; font-size: 12px; color: #a0b2c6; }
+.btn-logout { 
+    background: none; border: none; color: white; 
+    display: flex; align-items: center; gap: 10px; 
+    cursor: pointer; opacity: 0.8; font-weight: 600; padding: 0;
+}
+.btn-logout:hover { opacity: 1; }
+
+/* --- PANEL BLANCO PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    background: #ffffff;
+    margin: 15px 15px 15px 0;
+    border-radius: 40px;
+    padding: 45px 55px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-main { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+.header-main h2 { font-size: 42px; font-weight: 900; margin: 0; color: #111; }
+.subtitle-gray { color: #666; font-size: 16px; margin-top: 5px; }
+
+.btn-agregar { 
+    background: #000; color: #fff; 
+    border: none; padding: 12px 24px; border-radius: 30px; 
+    display: flex; align-items: center; gap: 8px; 
+    font-weight: bold; font-size: 15px; cursor: pointer; 
+}
+
+/* Buscador gris */
+.search-container { 
+    background: #f0f2f5; 
+    border-radius: 30px; 
+    padding: 14px 25px; 
+    display: flex; align-items: center; 
+    width: 100%; 
+    margin-bottom: 40px; 
+}
+.search-input { 
+    background: transparent; border: none; outline: none; 
+    width: 100%; padding-left: 15px; font-size: 15px; color: #333;
+}
+
+/* --- TABLA ESTILIZADA --- */
+.table-wrapper { width: 100%; overflow-x: auto; }
+.styled-table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0; 
+}
+
+.styled-table th { 
+    background-color: #e9ecef; /* Gris de la cabecera en la imagen */
+    padding: 16px; 
+    font-weight: bold; 
+    color: #333;
+    font-size: 14px;
+}
+/* Redondear esquinas superiores de la cabecera */
+.styled-table th:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
+.styled-table th:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
+
+.styled-table td { 
+    padding: 16px; 
+    border-bottom: 1px solid #eee; 
+    color: #444; 
+    font-size: 14px;
+}
+
+.text-center { text-align: center; }
+.inline-icon { vertical-align: middle; margin-right: 5px; color: #0d6efd;}
+
+.equipo-nombre { font-weight: 600; color: #555; }
+.equipo-desc { color: #777; font-size: 13px; }
+
+/* Botones de acción de la tabla */
+.acciones-cell { display: flex; justify-content: center; align-items: center; gap: 15px; }
+.btn-add-inline { 
+    background: none; border: none; color: #333; 
+    font-weight: bold; font-size: 13px; cursor: pointer; 
+    display: flex; align-items: center; gap: 5px;
+}
+.btn-delete-inline { 
+    background: #ff4d4f; color: white; border: none; 
+    border-radius: 6px; padding: 6px 8px; cursor: pointer; 
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* --- MODAL FLOTANTE --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5); /* Oscurece el fondo */
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #f4f5f7;
+    width: 480px;
+    padding: 40px;
+    border-radius: 35px; /* Modal muy redondeado */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    
+}
+
+.modal-title { font-size: 26px; font-weight: 800; margin: 0 0 5px 0; color: #111; }
+.modal-subtitle { font-size: 13px; color: #666; margin-bottom: 25px; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #333;}
+.form-group input, .form-group textarea {
+    width: 100%; padding: 15px 20px;
+    border-radius: 20px; border: none;
+    background: #fff; box-sizing: border-box; font-size: 15px; outline: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    color: #000000;
+}
+.form-group textarea { height: 90px; resize: none; }
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px; }
+.btn-cancelar { background: #fff; color: #333; border: 1px solid #ddd; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+
+/* AQUÍ ESTABA EL ERROR: Ya está completado el padding y cerrada la llave } */
+.btn-crear-final { background: #000; color: #fff; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+
+
+/* --- ESTILOS DEL MODAL DE USUARIOS --- */
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.btn-close-modal:hover {
+  background: #ffe6e6;
+  color: #ff4d4f; 
+}
+
+/* Modificado para que parezca una caja blanca igual a tus inputs */
+.usuarios-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+  margin: 20px 0;
+  background: #fff; 
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.usuarios-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usuario-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f2f5;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.usuario-list-item:hover {
+  background: #f8f9fa; /* Efecto hover gris clarito al pasar el mouse */
+}
+
+.usuario-list-item:last-child {
+  border-bottom: none;
+}
+
+.usuario-info-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar-sm {
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+}
+
+.usuario-nombre-texto {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+}
+
+.usuario-email-texto {
+  margin: 0;
+  color: #888;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.usuarios-empty-state {
+  text-align: center;
+  color: #999;
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+.modal-actions-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}

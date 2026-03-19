@@ -4,6 +4,22 @@ import axios from 'axios'; // Paso 2: Importar axios
 import image from './Img/image 69.png';
 import './Inicio_sesion.css'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function Inicio_sesion() {
   // Paso 3: Crear estados para los inputs
   const [email, setEmail] = useState('');
@@ -12,30 +28,67 @@ function Inicio_sesion() {
 
   // Paso 4: Función para manejar el envío del formulario
   const handleLogin = async (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
 
     try {
-      // Llamada al endpoint que creamos en IntelliJ
       const response = await axios.post('http://localhost:8080/api/usuarios/login', {
         email: email,
         password: password
       });
 
       if (response.status === 200) {
-        // Login exitoso: Guardamos datos en el navegador para "recordar" la sesión
-        localStorage.setItem('usuarioLogueado', JSON.stringify(response.data));
+        // Tu backend devuelve el objeto completo (con nombre, email, id, etc.)
+        const usuarioBackend = response.data;
+
+        // Lo convertimos a texto y lo guardamos en la "memoria" del navegador
+        localStorage.setItem('usuario', JSON.stringify(usuarioBackend));
         
-        alert(`¡Bienvenido de nuevo, ${response.data.name_user}!`);
-        
-        // Redirigir a la pantalla principal (por ejemplo, /dashboard)
-        navigate('/registro'); 
+        // Redirigimos a la pantalla principal (borrando el historial para que no puedan regresar con la flecha)
+        navigate('/principal', { replace: true }); 
       }
     } catch (error) {
-      // Si el backend devuelve 401 (Unauthorized)
       console.error("Error en login:", error);
-      alert("Correo o contraseña incorrectos. Inténtalo de nuevo.");
+
+      // Verificamos si el servidor respondió con un error específico
+      if (error.response) {
+        const status = error.response.status;
+        const mensajeBackend = error.response.data;
+
+        if (status === 403) {
+          // Aquí cae si el usuario está INACTIVO
+          alert(mensajeBackend); 
+        } else if (status === 401) {
+          // Aquí cae si la contraseña está mal
+          alert("Contraseña incorrecta. Inténtalo de nuevo.");
+        } else if (status === 404) {
+          // Aquí cae si el correo no existe
+          alert("El usuario no está registrado.");
+        } else {
+          // Cualquier otro error (500, etc.)
+          alert("Ocurrió un error en el servidor. Inténtalo más tarde.");
+        }
+      } else {
+        // Si ni siquiera se pudo conectar al servidor
+        alert("No se pudo conectar con el servidor. Revisa tu conexión.");
+      }
     }
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="full-screen-container">

@@ -1,0 +1,45 @@
+/* --- ESTILOS DE TAREAS --- */
+.title-xxl { font-size: 2.5rem; margin-bottom: 5px; font-weight: bold; }
+.btn-agregar-black { background-color: #000; color: #fff; padding: 10px 20px; border-radius: 20px; display: flex; align-items: center; gap: 8px; font-weight: bold; border: none; cursor: pointer; }
+.rounded-search { border-radius: 30px; background-color: #f0f0f0; border: none; padding: 12px 20px; margin-bottom: 20px;}
+.rounded-search input { background: transparent; }
+
+/* Pestañas / Tabs */
+.filter-tabs { display: flex; gap: 10px; margin-bottom: 25px; }
+.tab-button { background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; color: #555; font-weight: 500;}
+.tab-button.active { background: #fff; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #000;}
+
+/* Grid y Tarjetas */
+.tareas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.tarea-card { background: #f3f4f6; padding: 20px; border-radius: 15px; display: flex; flex-direction: column; gap: 15px; }
+.tarea-card h3 { margin: 0; font-size: 1.2rem; }
+.tarea-card p { margin: 0; color: #555; font-size: 0.9rem; flex-grow: 1; }
+
+/* Badges (Píldoras de colores) */
+.tarea-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; border: 1px solid transparent; }
+.badge-estado.en-progreso { background: #fef3c7; color: #d97706; border-color: #fde68a; }
+.badge-estado.por-hacer { background: #f3f4f6; color: #4b5563; border-color: #d1d5db; }
+.badge-estado.completadas { background: #d1fae5; color: #059669; border-color: #a7f3d0; }
+.badge-prioridad.alta { border-color: #ef4444; color: #ef4444; }
+.badge-prioridad.media { border-color: #f59e0b; color: #f59e0b; }
+.badge-prioridad.baja { border-color: #3b82f6; color: #3b82f6; }
+.badge-categoria { background: #e0e7ff; color: #4f46e5; border-color: #c7d2fe; }
+
+/* Footer de la tarjeta */
+.tarea-footer { display: flex; justify-content: space-between; font-size: 0.8rem; color: #6b7280; padding-top: 10px; border-top: 1px solid #e5e7eb; }
+.tarea-footer span { display: flex; align-items: center; gap: 5px; }
+
+/* Modal específico para tareas */
+.modal-tarea-lg { max-width: 600px; border-radius: 20px; }
+.modal-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.full-width { grid-column: span 2; }
+.modal-form-grid input, .modal-form-grid textarea, .modal-form-grid select { 
+    background: #fff; 
+    border-radius: 15px; 
+    padding: 12px; 
+    border: none; 
+    box-shadow: inset 0 0 0 1px #e5e7eb; 
+    color: #333; /* <-- ESTO ASEGURA QUE SE VEA EL TEXTO */
+}
+.mt-4 { margin-top: 1rem; }

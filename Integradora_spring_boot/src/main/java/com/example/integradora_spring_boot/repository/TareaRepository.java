@@ -6,8 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TareaRepository extends JpaRepository<Tarea, Long> {
-    // Aquí podrías agregar métodos como:
-    // List<Tarea> findByEstado(EstadoTarea estado);
-
-
 }
